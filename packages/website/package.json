@@ -1,0 +1,19 @@
+{
+  "name": "@react-hooks-issue/website",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "NODE_ENV=development next dev"
+  },
+  "dependencies": {
+    "next": "^9.3.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "styled-reset": "^4.1.2"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.25",
+    "@types/react-dom": "^16.9.5",
+    "typescript": "^3.8.3"
+  }
+}

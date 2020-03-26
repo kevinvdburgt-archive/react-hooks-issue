@@ -1,1 +1,1 @@
-export * from './components/Faq';
+export * from './components/Example';

@@ -1,4 +1,5 @@
 const { resolve } = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   devtool: 'source-map',
@@ -7,19 +8,12 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js', '.json'],
   },
 
-  entry: resolve(__dirname, 'src', 'index.ts'),
-
-  externals: {
-    'react': {
-      commonjs: 'react',
-    },
-  },
+  entry: resolve(__dirname, 'src', 'index.tsx'),
 
   output: {
     path: resolve(__dirname, 'dist'),
-    filename: 'index.js',
-    // library: '',
-    libraryTarget: 'commonjs',
+    filename: '[name].[hash].js',
+    publicPath: '/',
   },
 
   optimization: {
@@ -41,5 +35,17 @@ module.exports = {
         ],
       },
     ],
+  },
+
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: resolve(__dirname, 'src', 'index.html'),
+      filename: 'index.html',
+      inject: 'body',
+    }),
+  ],
+
+  devServer: {
+    historyApiFallback: true,
   },
 };
